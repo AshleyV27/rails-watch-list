@@ -1,5 +1,12 @@
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= list.name %></li>
-  <% end %>
-</ul>
+<h1>Lists</h1>
+
+<ol>
+    <% @lists.each do |list| %>
+  <li>
+      <%= list.name %>
+      <%= link_to 'More Details', list_path(list) %>
+  </li>
+    <% end %>
+</ol>
+
+<%= link_to "Create a new List", new_list_path %>

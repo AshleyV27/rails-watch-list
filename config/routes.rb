@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   #     get :top
   #   end
   # end
-  resources :bookmarks, only: [:destroy]
-  resources :lists, only: [:new, :create, :show, :index, :destroy] do
-    resources :bookmarks, only: [:new, :create]
+  root to: "lists#index"
+  resources :lists, only: %i[show create new] do
+    resources :bookmarks, only: %i[new create index]
   end
+  resources :bookmarks, only: %i[destroy]
 end
